@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.codenation.model.OrderItem;
@@ -22,6 +23,31 @@ public class OrderServiceTest {
 		items.add(new OrderItem(1l, 3l));
 		items.add(new OrderItem(2l, 2l));
 		assertNotNull(this.orderService.calculateOrderValue(items));
+	}
+	
+	@Test
+	public void testCalculateOrderValueWithDiscount() {
+	    List<OrderItem> items = new ArrayList<>();
+	    items.add(new OrderItem(7l, 2l));
+	    Double expected = this.orderService.calculateOrderValue(items);
+	    Assert.assertEquals(57.6, expected, 0.0);
+	}
+	
+	@Test
+	public void testCalculateOrderValueWithoutDiscount() {
+	    List<OrderItem> items = new ArrayList<>();
+	    items.add(new OrderItem(1l, 2l));
+	    Double expected = this.orderService.calculateOrderValue(items);
+	    Assert.assertEquals(500.0, expected, 0.0);
+	}
+	
+	@Test
+	public void testCalculateOrderValueWithAnWithoutDiscount() {
+	    List<OrderItem> items = new ArrayList<>();
+	    items.add(new OrderItem(1l, 2l));
+	    items.add(new OrderItem(7l, 2l));
+	    Double expected = this.orderService.calculateOrderValue(items);
+	    Assert.assertEquals(557.6, expected, 0.0);
 	}
 
 	@Test

@@ -13,6 +13,7 @@ import br.com.codenation.repository.ProductRepositoryImpl;
 
 public class OrderServiceImpl implements OrderService {
 
+    private static final double TWENTY_PERCENT_DISCOUNT = 0.8;
     private ProductRepository productRepository = new ProductRepositoryImpl();
 
     /**
@@ -26,12 +27,25 @@ public class OrderServiceImpl implements OrderService {
     }
     
     private Double getTotalByItem(OrderItem orderItem){
-        Optional<Product> optionalProduct = productRepository.findById(orderItem.getProductId());
-        Long quantity = orderItem.getQuantity();
-        if (optionalProduct.get().getIsSale()) {
-            return (optionalProduct.get().getValue() * quantity) * 0.8;
+        Product product = getProduct(orderItem.getProductId());
+        Double price = product.getValue();
+        Double quantity = orderItem.getQuantity().doubleValue();
+        if (hasDiscount(product)) {
+            return calculateTotalWithDiscount(price, quantity);
         }
-        return optionalProduct.get().getValue() * quantity;
+        return calculateTotal(price, quantity);
+    }
+    
+    private  boolean hasDiscount(Product product) {
+        return product.getIsSale();
+    }
+    
+    private  Double calculateTotal(Double price, Double quantity) {
+        return price * quantity;
+    }
+    
+    private  Double calculateTotalWithDiscount(Double price, Double quantity) {
+        return (price * quantity) * TWENTY_PERCENT_DISCOUNT;
     }
     
     private Product getProduct(Long id) {

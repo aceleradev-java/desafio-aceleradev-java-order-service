@@ -1,5 +1,23 @@
 # Order Service
 
+<p>
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/aceleradev-java/desafio-aceleradev-java-order-service">
+    <a href="https://github.com/aceleradev-java/desafio-aceleradev-java-order-service">
+        <img alt="Made by" src="https://img.shields.io/badge/made%20by-adriano%20avelino-gree">
+    </a>
+    <img alt="Repository size" src="https://img.shields.io/github/repo-size/aceleradev-java/desafio-aceleradev-java-order-service">
+    <a href="https://github.com/EliasGcf/readme-template/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/aceleradev-java/desafio-aceleradev-java-order-service">
+    </a>
+</p>
+
+O Aceleradev é um treinamento da Codenation com duração de 10 semanas de imersão em programação, no meu caso, Java online. Esse é o desafio do quinto módulo que tem como conteúdo:
+- SQL (INSERT, SELECT, UPDATE, DELETE)
+- Maninpulação de Dados com Hibernate
+- Manipulação de Dados Spring Boot/Data
+
+## Desafio (Order Service)
+
 Em um sistema de gerenciamento de pedidos, surgiram alguns requisitos novos para serem implementados. Sua tarefa é realizar a implementação dessas funcionalidades conforme as instruções abaixo.
 
 Você deve implementar os métodos da classe **OrderServiceImpl**, uma implementação da Interface **OrderService**. A implementação de seus métodos deve utilizar a seguir as regras abaixo. 
